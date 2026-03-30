@@ -1,12 +1,58 @@
-﻿<Window x:Class="ChatApp.MainWindow"
+﻿ <Window x:Class="ChatApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChatApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="650" Width="1100">
+    <Window.Resources>
+    </Window.Resources>
+
+    <Grid Background="{DynamicResource PrimaryColor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Frame Content="" Grid.Row="0" Grid.RowSpan="3" Background="{DynamicResource PrimaryMediumColor}"/>
+        <Frame Content="" Grid.Row="0" Grid.ColumnSpan="3" Background="{DynamicResource PrimaryMediumColor}"/>
+        <Frame Content="" Grid.Row="0" Grid.RowSpan="3" Background="{DynamicResource PrimaryMediumColor}"/>
         
+        <!--Buttons-->
+        <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="ListenButton" Content="Listen" Width="200" Height="50" FontSize ="20" 
+                    Click="ListenButton_Click"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+            <Button x:Name="ConnectButton" Content="Connect" Width="200" Height="50" Margin="10,0,0,0" FontSize="20" 
+                    Click="ConnectButton_Click"
+                    MouseEnter="Button_MouseEnter"
+                    MouseLeave="Button_MouseLeave"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
+            <Label Content="My IP Adress :" HorizontalAlignment="Left" Width="400" FontSize="20"></Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="My Port :" FontSize="20"></Label>
+                <TextBox x:Name="PortTB" Width="200" TextAlignment="Center" FontSize="15"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="RefreshButton" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" Content="Refresh" Width="200" Height="50" FontSize="20"
+                Click="RefreshButton_Click"
+                MouseEnter="Button_MouseEnter"
+                MouseLeave="Button_MouseLeave"/>
+
+        <StackPanel x:Name="AvailiableConnectionsPanel" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,10,0"/>
+
+
     </Grid>
 </Window>
